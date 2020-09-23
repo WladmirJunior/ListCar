@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         downloadApi()
     }
 
@@ -37,9 +38,15 @@ class ViewController: UIViewController {
             }
         }.resume()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? DetailCarViewController, let car = sender as? Car {
+            viewController.car = car
+        }
+    }
 }
 
-extension ViewController: UITableViewDataSource {
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return carArray.count
     }
@@ -55,19 +62,9 @@ extension ViewController: UITableViewDataSource {
             fatalError("Não foi possivel convertar a celula.")
         }
     }
-}
-
-struct Car: Codable {
-    public let name, date: String
-    public let value: Int
-    public let brand, color, createdAt: String
     
-    enum CodingKeys: String, CodingKey {
-        case name = "nome"
-        case date = "data"
-        case value = "Valor"
-        case brand = "Marca"
-        case color = "Cor"
-        case createdAt
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let car = carArray[indexPath.row]
+        performSegue(withIdentifier: "segueDetail", sender: car)
     }
 }
