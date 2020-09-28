@@ -70,7 +70,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="carBrand" destination="QIY-aQ-5Bb" id="Scd-ng-Hga"/>
-                                            <outlet property="carImage" destination="36A-Gj-GEX" id="aWZ-Ig-P35"/>
+                                            <outlet property="carImage" destination="bSN-5o-4bp" id="OJG-4V-Gll"/>
                                             <outlet property="carName" destination="rfw-zn-p65" id="boa-QP-xDj"/>
                                             <outlet property="carPrice" destination="Jyt-3U-AtJ" id="xaJ-sk-ZGC"/>
                                         </connections>
@@ -105,8 +105,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tela de detalhe do carro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8f-QX-y6H">
-                                <rect key="frame" x="104" y="222" width="184" height="231"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tela de detalhes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8f-QX-y6H">
+                                <rect key="frame" x="115" y="333" width="184" height="231"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>

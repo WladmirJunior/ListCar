@@ -39,6 +39,19 @@ class ViewController: UIViewController {
         }.resume()
     }
     
+    func downloadImage(with url: String,  completion: @escaping(UIImage?) -> ()) {
+        if let link = URL(string: url) {
+            URLSession.shared.dataTask(with: link) { (data, response, error) in
+                if let data = data {
+                    let uiImage = UIImage(data: data)
+                    DispatchQueue.main.async {
+                        completion(uiImage)
+                    }
+                }
+            }.resume()
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? DetailCarViewController, let car = sender as? Car {
             viewController.car = car
@@ -57,6 +70,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             cell.carName.text = car.name
             cell.carBrand.text = car.brand
             cell.carPrice.text = String(car.value)
+            
+            downloadImage(with: car.image) { (image) in
+                cell.carImage.image = image
+            }            
+            
             return cell
         } else {
             fatalError("Não foi possivel convertar a celula.")
